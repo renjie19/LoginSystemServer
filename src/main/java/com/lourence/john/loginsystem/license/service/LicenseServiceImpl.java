@@ -32,4 +32,9 @@ public class LicenseServiceImpl implements LicenseService {
         }
         return licenseList;
     }
+
+    @Override
+    public License updateLicense(License license) {
+        return repository.save(license);
+    }
 }

@@ -10,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.HSQL)
@@ -28,7 +27,7 @@ class EmployeeServiceImplTest {
         employee.setPosition("president");
         service.createEmployee(employee);
         try {
-            service.getByName("Rodrigo Duterte");
+            service.hasName("Rodrigo Duterte");
         }catch (Exception e) {
             e.printStackTrace();
         }

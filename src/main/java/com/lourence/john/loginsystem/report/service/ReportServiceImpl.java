@@ -21,7 +21,7 @@ public class ReportServiceImpl implements ReportService {
             long start = date.getTime();
             Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endDate+" 23:59:59");
             long end = date1.getTime();
-            return generateReport(repository.findLogsByEmployeeId(id,start,end));
+            return generateReport2(repository.findLogsByEmployeeId(id,start,end));
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,27 +30,53 @@ public class ReportServiceImpl implements ReportService {
 
     private List<Report> generateReport(List<TimeLog> timeLogList) {
         List<Report> reportList = new ArrayList<Report>();
+//        while(!timeLogList.isEmpty()) {
+//            TimeLog timeIn = timeLogList.get(0);
+//            Report report = new Report();
+//            report.setEmployeeId(timeIn.getEmployeeId());
+//            report.setTimeInLog();
+//            report.setTimeInId(timeIn.getLogId());
+//            report.setTimeIn(timeIn.getTime());
+//            timeLogList.remove(timeIn);
+//            TimeLog timeOut = null;
+//            if(!timeLogList.isEmpty()) {
+//                timeOut = timeLogList.get(0);
+//            }
+//            if(timeOut!=null && !(timeIn.getType().equals(timeOut.getType()))) {
+//                report.setTimeOut(timeOut.getTime());
+//                report.setTimeOutId(timeOut.getLogId());
+//                timeLogList.remove(timeOut);
+//            } else if(timeOut!=null && timeIn.getType().equals(timeOut.getType())) {
+//                report.setTimeOut(null);
+//            } else {
+//                report.setTimeOut(null);
+//            }
+//            reportList.add(report);
+//        }
+
+        return reportList;
+    }
+
+    private List<Report> generateReport2(List<TimeLog> timeLogList) {
+        List<Report> reportList = new ArrayList<>();
         while(!timeLogList.isEmpty()) {
-            TimeLog timeIn = (TimeLog)timeLogList.get(0);
             Report report = new Report();
-            report.setEmployeeId(timeIn.getEmployeeId());
-            report.setTimeIn(timeIn.getTime());
-            timeLogList.remove(timeIn);
+            report.setTimeInLog(timeLogList.get(0));
+            timeLogList.remove(report.getTimeInLog());
             TimeLog timeOut = null;
             if(!timeLogList.isEmpty()) {
-                timeOut = (TimeLog)timeLogList.get(0);
+                timeOut = timeLogList.get(0);
             }
-            if(timeOut!=null && !(timeIn.getType().equals(timeOut.getType()))) {
-                report.setTimeOut(timeOut.getTime());
+            if(timeOut!=null && !(report.getTimeInLog().getType().equals(timeOut.getType()))) {
+                report.setTimeOutLog(timeLogList.get(0));
                 timeLogList.remove(timeOut);
-            } else if(timeOut!=null && timeIn.getType().equals(timeOut.getType())) {
-                report.setTimeOut(null);
+            } else if(timeOut!=null && report.getTimeInLog().getType().equals(timeOut.getType())) {
+                report.setTimeOutLog(null);
             } else {
-                report.setTimeOut(null);
+                report.setTimeOutLog(null);
             }
             reportList.add(report);
         }
-
         return reportList;
     }
 

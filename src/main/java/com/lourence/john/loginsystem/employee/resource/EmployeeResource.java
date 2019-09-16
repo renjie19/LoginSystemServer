@@ -3,7 +3,6 @@ package com.lourence.john.loginsystem.employee.resource;
 import com.lourence.john.loginsystem.employee.repository.Employee;
 import com.lourence.john.loginsystem.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,5 +41,15 @@ public class EmployeeResource {
     @DeleteMapping("/deleteEmployee")
     public void deleteEmployee(@RequestParam int id) {
         service.deleteEmployee(id);
+    }
+
+    @GetMapping("/getByName")
+    public Employee getEmployee(@RequestParam String name) {
+        try{
+           return service.getByName(name);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

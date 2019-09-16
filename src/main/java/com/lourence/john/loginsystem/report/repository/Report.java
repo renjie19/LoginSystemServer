@@ -1,12 +1,14 @@
 package com.lourence.john.loginsystem.report.repository;
 
 
+import com.lourence.john.loginsystem.timelog.repository.TimeLog;
+
 import java.util.Date;
 
 public class Report {
     private int employeeId;
-    private Long timeIn;
-    private Long timeOut;
+    private TimeLog timeInLog;
+    private  TimeLog timeOutLog;
     private double totalHours;
 
     public int getEmployeeId() {
@@ -17,12 +19,21 @@ public class Report {
         this.employeeId = employeeId;
     }
 
-    public long getTimeIn() {
-        return timeIn;
+    public TimeLog getTimeInLog() {
+        return timeInLog;
     }
 
-    public void setTimeIn(long timeIn) {
-        this.timeIn = timeIn;
+    public void setTimeInLog(TimeLog timeInLog) {
+        this.timeInLog = timeInLog;
+        this.employeeId = timeInLog.getEmployeeId();
+    }
+
+    public TimeLog getTimeOutLog() {
+        return timeOutLog;
+    }
+
+    public void setTimeOutLog(TimeLog timeOutLog) {
+        this.timeOutLog = timeOutLog;
     }
 
     public double getTotalHours() {
@@ -31,13 +42,5 @@ public class Report {
 
     public void setTotalHours(double totalHours) {
         this.totalHours = totalHours;
-    }
-
-    public Long getTimeOut() {
-        return timeOut;
-    }
-
-    public void setTimeOut(Long timeOut) {
-        this.timeOut = timeOut;
     }
 }

@@ -17,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee createEmployee(Employee employee) {
         try {
-            getByName(employee.getName());
+            hasName(employee.getName());
             return repository.save(employee);
         }catch (Exception e) {
             e.printStackTrace();
@@ -57,12 +57,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getByName(String name) throws Exception {
+    public Employee hasName(String name) throws Exception {
         Employee employee = repository.findByName(name);
         if(employee != null) {
             throw new Exception("Employee Exist");
         }
         return null;
+    }
+
+    @Override
+    public Employee getByName(String name) {
+        return repository.findByName(name);
     }
 
     @Override

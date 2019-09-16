@@ -27,4 +27,9 @@ public class LicenseResource {
     public List<License> getAll() {
         return service.getAll();
     }
+
+    @PostMapping("/update")
+    public License updateLicense(@RequestBody License license) {
+        return service.updateLicense(license);
+    }
 }

@@ -8,4 +8,5 @@ public interface LicenseService {
     License createLicense(License license);
     void deleteAll();
     List<License> getAll();
+    License updateLicense(License license);
 }
