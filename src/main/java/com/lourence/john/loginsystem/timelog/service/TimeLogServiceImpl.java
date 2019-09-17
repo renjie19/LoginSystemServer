@@ -29,6 +29,11 @@ public class TimeLogServiceImpl implements TimeLogService {
         return repository.save(timeLog);
     }
 
+    @Override
+    public TimeLog updateTimeLog(TimeLog timeLog) {
+        return repository.save(timeLog);
+    }
+
     private TimeLog getLastLog(int id) {
        return repository.findFirstByEmployeeIdOrderByTimeDesc(id);
     }
