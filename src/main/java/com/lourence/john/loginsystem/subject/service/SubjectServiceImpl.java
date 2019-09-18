@@ -26,4 +26,9 @@ public class SubjectServiceImpl implements SubjectService {
         }
         return subjectList;
     }
+
+    @Override
+    public void deleteById(int id) {
+        repository.deleteById(id);
+    }
 }

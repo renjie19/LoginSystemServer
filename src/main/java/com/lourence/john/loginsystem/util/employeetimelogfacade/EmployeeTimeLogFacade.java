@@ -13,13 +13,8 @@ public class EmployeeTimeLogFacade {
     @Autowired
     private TimeLogService timeLogService;
 
-    public TimeLog logTime(int id) {
-        try {
-            employeeService.hasId(id);
-            return timeLogService.createTimeLog(id);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public TimeLog logIn(int id) throws Exception {
+        employeeService.hasId(id);
+        return timeLogService.createTimeLog(id);
     }
 }

@@ -14,7 +14,7 @@ public class EmployeeResource {
     private EmployeeService service;
 
     @PostMapping("/save")
-    public Employee save(@RequestBody Employee employee) {
+    public Employee save(@RequestBody Employee employee)throws Exception {
         return service.createEmployee(employee);
     }
 
@@ -45,11 +45,6 @@ public class EmployeeResource {
 
     @GetMapping("/getByName")
     public Employee getEmployee(@RequestParam String name) {
-        try{
-           return service.getByName(name);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+        return service.getByName(name);
     }
 }

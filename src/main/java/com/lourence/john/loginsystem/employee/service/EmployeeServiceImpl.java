@@ -15,14 +15,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository repository;
 
     @Override
-    public Employee createEmployee(Employee employee) {
-        try {
-            hasName(employee.getName());
-            return repository.save(employee);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Employee createEmployee(Employee employee) throws Exception {
+        hasName(employee.getName());
+        return repository.save(employee);
     }
 
     @Override

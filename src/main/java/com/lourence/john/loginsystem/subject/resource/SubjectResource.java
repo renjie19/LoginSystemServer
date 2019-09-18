@@ -22,4 +22,9 @@ public class SubjectResource {
     public List<Subject> getAll() {
         return service.getAll();
     }
+
+    @DeleteMapping("/deleteById")
+    public void deleteById(@RequestParam int id) {
+        service.deleteById(id);
+    }
 }

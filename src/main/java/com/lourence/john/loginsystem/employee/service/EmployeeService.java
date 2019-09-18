@@ -5,7 +5,7 @@ import com.lourence.john.loginsystem.employee.repository.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    Employee createEmployee(Employee employee);
+    Employee createEmployee(Employee employee) throws Exception;
     List<Employee> getAll();
     Employee updateEmployee(Employee employee);
     void deleteAll();

@@ -12,7 +12,7 @@ public class FacadeResource {
     private EmployeeTimeLogFacade facade;
 
     @PostMapping("/save")
-    public TimeLog save(@RequestBody Integer id) {
-        return facade.logTime(id);
+    public TimeLog save(@RequestBody Integer id) throws Exception {
+        return facade.logIn(id);
     }
 }

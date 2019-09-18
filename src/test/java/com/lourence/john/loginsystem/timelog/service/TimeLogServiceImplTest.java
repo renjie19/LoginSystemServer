@@ -27,14 +27,13 @@ class TimeLogServiceImplTest {
     }
 
     @Test
-    void addTimeLog() {
+    void addTimeLog() throws Exception {
         Employee employee = new Employee();
         employee.setName("Rodrigo Duterte");
         employee.setAge(35);
         employee.setAddress("Manila");
         employee.setPosition("President");
         employee = employeeService.createEmployee(employee);
-
         timeLogService.createTimeLog(employee.getEmployeeId());
     }
 }

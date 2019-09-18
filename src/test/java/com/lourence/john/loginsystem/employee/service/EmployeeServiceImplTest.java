@@ -19,17 +19,13 @@ class EmployeeServiceImplTest {
     @Autowired
     EmployeeRepository repository;
     @Test
-    void getByName() {
+    void getByName() throws Exception {
         Employee employee = new Employee();
         employee.setName("Rodrigo Duterte");
         employee.setAge(35);
         employee.setAddress("Manila");
         employee.setPosition("president");
         service.createEmployee(employee);
-        try {
-            service.hasName("Rodrigo Duterte");
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+        service.hasName("Rodrigo Duterte");
     }
             }
