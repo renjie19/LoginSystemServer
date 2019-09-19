@@ -24,7 +24,8 @@ public class ReportServiceImpl implements ReportService {
             long start = date.getTime();
             Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endDate+" 23:59:59");
             long end = date1.getTime();
-            return generateReport(repository.findLogsByEmployeeId(id,start,end));
+            //return generateReport(repository.findLogsByEmployeeId(id,start,end));
+            return generateReport(repository.findByEmployeeIdAndTimeBetweenOrderByTimeAsc(id,start,end));
         }catch (Exception e) {
             e.printStackTrace();
         }

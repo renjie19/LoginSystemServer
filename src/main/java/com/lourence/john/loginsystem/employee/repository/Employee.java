@@ -3,6 +3,7 @@ package com.lourence.john.loginsystem.employee.repository;
 import com.lourence.john.loginsystem.license.repository.License;
 import com.lourence.john.loginsystem.section.repository.Section;
 import com.lourence.john.loginsystem.subject.repository.Subject;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,13 +17,13 @@ public class Employee {
     private int age;
     private String address;
     private String position;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     @JoinColumn
     private License license;
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     @JoinColumn
     private List<Subject> subjectList;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     @JoinColumn
     private List<Section> sectionList;
 
