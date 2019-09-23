@@ -11,7 +11,7 @@ public interface EmployeeService {
     void deleteAll();
     Employee getById(int id);
     void deleteEmployee(int id);
-    Employee hasName(String name) throws Exception;
+    void hasName(String name) throws Exception;
     Employee getByName(String name);
     boolean hasId(int id) throws Exception;
 }

@@ -52,12 +52,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee hasName(String name) throws Exception {
+    public void hasName(String name) throws Exception {
         Employee employee = repository.findByName(name);
         if(employee != null) {
             throw new Exception("Employee Exist");
         }
-        return null;
     }
 
     @Override
