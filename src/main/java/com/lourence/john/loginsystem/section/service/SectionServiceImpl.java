@@ -21,12 +21,7 @@ public class SectionServiceImpl implements SectionService  {
 
     @Override
     public List<Section> getAllSection() {
-        List<Section> sectionList = new ArrayList<>();
-        Iterable<Section> sectionIterable = repository.findAll();
-        for(Section section : sectionIterable) {
-            sectionList.add(section);
-        }
-        return sectionList;
+        return repository.findAll();
     }
 
     @Override

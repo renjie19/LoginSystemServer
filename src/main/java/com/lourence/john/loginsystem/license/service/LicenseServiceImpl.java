@@ -25,12 +25,7 @@ public class LicenseServiceImpl implements LicenseService {
 
     @Override
     public List<License> getAll() {
-        List<License> licenseList = new ArrayList<>();
-        Iterable<License> employeeIterable = repository.findAll();
-        for (License license : employeeIterable) {
-            licenseList.add(license);
-        }
-        return licenseList;
+        return repository.findAll();
     }
 
     @Override

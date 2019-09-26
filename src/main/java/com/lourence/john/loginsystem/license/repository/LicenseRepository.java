@@ -1,6 +1,6 @@
 package com.lourence.john.loginsystem.license.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LicenseRepository extends CrudRepository<License,Integer> {
+public interface LicenseRepository extends JpaRepository<License,Integer> {
 }
