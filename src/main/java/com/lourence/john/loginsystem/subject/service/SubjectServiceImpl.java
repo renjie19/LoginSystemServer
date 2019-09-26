@@ -19,12 +19,7 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public List<Subject> getAll() {
-        List<Subject> subjectList = new ArrayList<>();
-        Iterable<Subject> subjectIterable = repository.findAll();
-        for (Subject subject : subjectIterable) {
-            subjectList.add(subject);
-        }
-        return subjectList;
+        return repository.findAll();
     }
 
     @Override

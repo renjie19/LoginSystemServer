@@ -22,12 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> getAll() {
-        List<Employee> employeeList = new ArrayList<>();
-        Iterable<Employee> employeeIterable = repository.findAll();
-        for (Employee employee : employeeIterable) {
-            employeeList.add(employee);
-        }
-        return employeeList;
+        return repository.findAll();
     }
 
     @Override

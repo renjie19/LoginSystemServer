@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,7 +23,6 @@ public class ReportServiceImpl implements ReportService {
             long start = date.getTime();
             Date date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endDate+" 23:59:59");
             long end = date1.getTime();
-            //return generateReport(repository.findLogsByEmployeeId(id,start,end));
             return generateReport(repository.findByEmployeeIdAndTimeBetweenOrderByTimeAsc(id,start,end));
         }catch (Exception e) {
             e.printStackTrace();
@@ -58,9 +56,9 @@ public class ReportServiceImpl implements ReportService {
 
     private double getHoursRendered(Report report){
         if(report.getTimeInLog().getTime() != 0 && report.getTimeOutLog().getTime() != 0) {
-            Long timeIn = report.getTimeInLog().getTime();
-            Long timeOut = report.getTimeOutLog().getTime();
-            Long diff = timeOut - timeIn;
+            long timeIn = report.getTimeInLog().getTime();
+            long timeOut = report.getTimeOutLog().getTime();
+            long diff = timeOut - timeIn;
             BigDecimal bigDecimal = new BigDecimal(Double.toString(((double)diff/1000)/3600));
             bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
             return bigDecimal.doubleValue();

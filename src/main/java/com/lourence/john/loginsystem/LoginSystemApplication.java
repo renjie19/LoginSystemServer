@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LoginSystemApplication {
 
 	public static void main(String[] args){
-
 		SpringApplication.run(LoginSystemApplication.class, args);
 	}
 
