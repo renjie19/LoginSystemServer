@@ -17,7 +17,7 @@ public class FacadeResource {
         return facade.logIn(id);
     }
     
-    @PostMapping("/saveWeb")
+    @PostMapping("/saveWeb/{id}")
     public TimeLog save(@PathVariable("id")int id) throws Exception {
         return facade.logIn(id);
     }
