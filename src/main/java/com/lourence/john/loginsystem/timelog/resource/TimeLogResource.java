@@ -3,11 +3,9 @@ package com.lourence.john.loginsystem.timelog.resource;
 import com.lourence.john.loginsystem.timelog.repository.TimeLog;
 import com.lourence.john.loginsystem.timelog.service.TimeLogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/timeLog")
 public class TimeLogResource {
