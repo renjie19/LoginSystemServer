@@ -5,6 +5,7 @@ import com.lourence.john.loginsystem.util.employeetimelogfacade.EmployeeTimeLogF
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/facade")
 public class FacadeResource {
