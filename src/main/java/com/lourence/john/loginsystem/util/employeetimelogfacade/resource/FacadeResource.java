@@ -17,6 +17,11 @@ public class FacadeResource {
         return facade.logIn(id);
     }
     
+    @PostMapping("/saveParam")
+    public TimeLog save(@RequestParam int id) throws Exception {
+        return facade.logIn(id);
+    }
+    
     @PostMapping("/saveWeb/{id}")
     public TimeLog save(@PathVariable("id")int id) throws Exception {
         return facade.logIn(id);
